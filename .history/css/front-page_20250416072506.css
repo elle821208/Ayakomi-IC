@@ -1,0 +1,37 @@
+body{
+    background-color:antiquewhite;
+}
+
+/*----------------*/
+header{
+    background-color: cadetblue;
+}
+
+/*-------ヘッダーリストを横並びにする---------*/
+header nav ul{
+    display: flex;
+    justify-content:space-around;
+}
+
+/*-------トップページの画像---------*/
+#hero img{
+    width: 100%;
+}
+
+/*-------トップページの文章---------*/
+#about{
+    background-color: antiquewhite;
+}
+
+/*-------投稿のサムネイル画像がない時---------*/
+.nothing-thumbnails{
+    width: 400px;
+}
+
+
+
+.articles{
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: 400px 400px;
+}
