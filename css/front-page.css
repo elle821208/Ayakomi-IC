@@ -1,39 +1,212 @@
-body{
-    background-color:antiquewhite;
+/* ---------------------------------
+   【全体設定】背景色とフォント
+---------------------------------- */
+body {
+    background-color: #faf8f4; /* やさしいアイボリー調の背景色 */
+    font-family: "Helvetica Neue", "游ゴシック", sans-serif; /* 見やすく、柔らかい印象のフォント */
+    margin: 0;
+    padding: 0;
 }
 
-/*----------------*/
-header{
-    background-color: cadetblue;
+/* ---------------------------------
+   【ヘッダー全体】Wix風に背景画像付き
+---------------------------------- */
+.wix-style-header {
+    position: relative;       /* 子要素（背景やナビ）を重ねて配置するためにrelative */
+    height: 300px;            /* ヘッダー高さを明示的に指定 */
+    overflow: hidden;         /* はみ出した背景画像を隠す */
 }
 
-/*-------ヘッダーリストを横並びにする---------*/
-header nav ul{
-    display: flex;
-    justify-content:space-around;
+/* 背景画像設定（.header-background内のimg） */
+.header-background img {
+    width: 100%;              /* 画面幅にフィット */
+    height: 100%;             /* ヘッダー全体に画像を広げる */
+    object-fit: cover;        /* 画像の比率を保ったまま枠にフィットさせる */
+    opacity: 0.85;            /* 少し透過させてロゴや文字が見えやすくする */
 }
 
-/*-------トップページの画像---------*/
-#hero img{
+/* ---------------------------------
+   【ヘッダー中身】ロゴとナビゲーション
+---------------------------------- */
+.header-content {
+    position: absolute;       /* 背景画像の上に重ねるためにabsolute指定 */
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    z-index: 2;               /* 背景画像よりも前面に表示する */
+    display: flex;            /* 中央揃えのためにflexboxを使用 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #222;              /* 濃いグレーでテキストが見やすい */
 }
 
-/*-------トップページの文章---------*/
-#about{
-    background-color: antiquewhite;
+/* ロゴテキストのスタイル */
+.site-title {
+    font-size: 2rem;          /* 少し大きめの文字サイズで目立たせる */
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    text-align: center;
 }
 
-/*-------投稿のサムネイル画像がない時---------*/
-.nothing-thumbnails{
-    width: 400px;
-    height: 200px;
+/* ---------------------------------
+   【ナビゲーションメニュー】Wixと同じ配置
+---------------------------------- */
+.header-nav ul {
+    list-style: none;         /* デフォルトの箇条書きマークを消す */
+    display: flex;            /* 横並びにする */
+    gap: 2rem;                /* メニュー同士の間隔 */
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;          /* スマホなど狭い画面で折り返せるように */
+    justify-content: center;
 }
 
+/* 各リンクのスタイル */
+.header-nav li a {
+    text-decoration: none;    /* 下線を消す */
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;              /* ダークグレーで読みやすく */
+    transition: color 0.3s ease; /* ホバー時に色がなめらかに変化する */
+}
 
-/*-------wp投稿ループ文---------*/
-.articles{
+.header-nav li a:hover {
+    color: #000;              /* ホバーで少し濃くなる */
+}
+
+/* ---------------------------------
+   【メインビジュアル（#hero）】
+---------------------------------- */
+#hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #fff;   /* 白背景で画像と文字が引き立つ */
+}
+
+/* メイン画像を全幅で表示 */
+#hero img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ---------------------------------
+   【コース紹介セクション】
+---------------------------------- */
+.course-list {
+    padding: 4rem 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+/* 各コースアイテムのレイアウト */
+.course-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+/* コース画像スタイル */
+.course-item img {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;      /* 角を少し丸めて柔らかい印象に */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* うっすらと影をつける */
+}
+
+/* コース情報部分 */
+.course-info {
+    margin-top: 1rem;
+}
+
+.course-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.course-info p {
+    font-size: 1rem;
+    color: #444;
+}
+
+/* ボタンのスタイル */
+.course-info .btn {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0.5rem 1rem;
+    background-color: #a7c4c4; /* 落ち着いた青緑 */
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.course-info .btn:hover {
+    background-color: #8aa9a9; /* 少し濃くしてホバー感を出す */
+}
+
+/* ---------------------------------
+   【記事一覧セクション】
+---------------------------------- */
+#information {
+    background-color: #faf8f4;
+    padding: 3rem 2rem;
+}
+
+/* 投稿リスト全体（グリッドレイアウト） */
+.articles {
     display: grid;
-    grid-template-columns: 450px 450px 450px;/*--横3列--*/
-    grid-template-rows: 350px 350px;/*--縦2列--*/
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 自動的にカラム数調整 */
+    gap: 2rem;
+    justify-items: center;
 }
 
+/* 各記事カードのスタイル */
+.articles article {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* ふんわり浮いたカード風 */
+    max-width: 350px;
+    width: 100%;
+    text-align: left;
+}
+
+/* サムネイル画像 */
+.articles figure {
+    margin: 0 0 1rem 0;
+}
+
+.articles img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+/* 投稿に画像がないときの代替画像 */
+.nothing-thumbnails {
+    width: 100%;
+    height: auto;
+}
+
+/* ---------------------------------
+   【News一覧へのリンク】
+---------------------------------- */
+.list_link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.list_link a {
+    color: #a0522d; /* ウォームブラウン（目立たせる） */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.list_link a:hover {
+    text-decoration: underline;
+}

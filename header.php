@@ -13,21 +13,30 @@
     <?php wp_head(); ?><!--headが終わる前に入れる-->
 </head>
 
+<body <?php body_class(); ?>>
 
-<body <?php body_class(); ?>><!--bodyにページごとに違うクラスを全部つけてくれる -->
-    <!--↓↓↓ブログサイトのヘッダーリスト-->
-    <header>
-        <p class="site-title">Ayakomiのサイト</p>
-        <nav>
-            <ul><!--↓↓↓パーマリンクはwp固定ページのクイック編集で設定する-->
-                <li><a href="<?php echo home_url(); ?>">Home</a></li>
-                <li><a href="<?php echo home_url('/page'); ?>">page</a></li>
-                <li><a href="<?php echo home_url('/menu'); ?>">menu</a></li>
-                <li><a href="<?php echo home_url('/access'); ?>">access</a></li>
-                <li><a href="<?php echo home_url('/profile'); ?>">profile</a></li>
-                <li><a href="<?php echo home_url('/contact'); ?>">contact</a></li>
-                <li><a href="<?php echo home_url('/news'); ?>">news</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!--↑↑↑ブログサイトのヘッダーリスト-->
+  <header class="wix-style-header">
+    <!-- 背景画像 -->
+    <div class="header-background">
+      <img src="<?php echo get_template_directory_uri(); ?>/img/header-bg.jpg" alt="背景画像">
+    </div>
+
+    <!-- ロゴ＆ナビ -->
+    <div class="header-content">
+      <h1 class="site-title">Ayakomi Insight Coordinator</h1>
+
+      <!-- Wixと同じメニュー -->
+      <nav class="header-nav">
+        <ul>
+          <li><a href="<?php echo home_url(); ?>">ホーム</a></li>
+          <li><a href="<?php echo home_url('/about'); ?>">こんにちは</a></li>
+          <li><a href="<?php echo home_url('/about'); ?>">初めての方へ</a></li>
+          <li><a href="<?php echo home_url('/course'); ?>">コース</a></li>
+          <li><a href="<?php echo home_url('/counseling'); ?>">プラン</a></li>
+          <li><a href="<?php echo home_url('/contact'); ?>">お問い合わせ</a></li>
+          <li><a href="<?php echo home_url('/about'); ?>">ブログ</a></li>
+          <li><a href="https://www.instagram.com/【あなたのインスタID】" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>

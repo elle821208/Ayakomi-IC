@@ -10,40 +10,93 @@
 <!--page.phpから-->
 <!---->
 
-<?php get_header();/*これでヘッダーを読み込む*/ ?>
-<main>
-    <section id="hero">
-        <h1>How to Build Confidence in Fashion</h1>
-        <img src="<?php echo get_template_directory_uri();/*これでimg画像を読み込む*/ ?>/img/ayakomi-design-header.jpg" alt=" 参考">
-    </section>
-    <section id="about">
-    </section>
-    <section id="information">
-        <div class="articles"><!--wp投稿をループで回す-->
-            <?php if (have_posts()): ?><!--投稿があるときとない時で判定する※コロン構文-->
-                <?php while (have_posts()): the_post(); ?><!--wp投稿がある間は投稿の情報を読み込む-->
-                    <article><!--↓↓↓wpサムネイル画像-->
-                        <?php if (has_post_thumbnail()): ?><!--↓↓↓画像があるときは下記を表示する※コロン構文-->
-                            <figure>
-                                <?php the_post_thumbnail('post-thumbnails'); ?><!--functons.phpのadd_theme_support('post-thumbnails')←※sがいる※を効かせて、これでwpのサムネイル画像を読み込む-->
-                            </figure>
-                        <?php else : ?><!--※※※↓↓↓もし画像がない場合は下記を表示する-->
-                            <figure>
-                                <p class="nothing"><!--画像がないときの画像-->
-                                    <img class="nothing-thumbnails" src="<?php echo get_template_directory_uri(); ?>/img/dinosaur_spinosaurus_water.png" alt=""><!--これでimg画像を読み込む-->
-                                </p>
-                            </figure>
-                        <?php endif; ?><!--↑↑↑wpサムネイル画像の有無のif判定終了※コロン構文-->
-                        <p><?php echo get_the_date(); ?></p><!--日付を読み込む※if判定はなし-->
-                        <h2><?php the_title(); ?></h2><!--タイトルを読み込む※if判定はなし-->
-                        <a href="<?php the_permalink(); ?>">ニュース記事詳細はこちら</a><!---->
-                    </article><!--投稿のwhileループ情報終わり-->
-                <?php endwhile;
-            else: ?><!--投稿のwhileループ終了--><!--投稿のif判定-->
-                <p>投稿がありません</p><!--投稿がない時の表示-->
-            <?php endif; ?><!--投稿のif判定終了-->
-        </div><!--メインループarticleタグの閉じタグ。ループ文でarticleタグ（wpの投稿）を回す-->
-        <div class="list_link"><a href="<?php bloginfo('url'); ?>/news">🔗news</a></div><!---->
-    </section>
+
+
+
+
+<?php get_header(); // ヘッダー部分（header.php）を読み込む ?>
+
+<main class="main-content">
+
+  <!-- ★ メインビジュアルセクション -->
+  <section id="hero">
+    <h1>How to Build Confidence in Fashion!!!</h1>
+    <img src="<?php echo get_template_directory_uri(); ?>/img/ayakomi-design-header.jpg" alt="参考画像">
+    <!-- ↑ テーマフォルダ内のimgフォルダから画像を読み込む。ファイルは自分で用意する必要あり -->
+  </section>
+
+  <!-- ★ コース紹介セクション -->
+  <section class="course-list">
+    <h2>あなたらしさ発見</h2>
+
+    <!-- 1ヶ月コース -->
+    <div class="course-item">
+      <img src="<?php echo get_template_directory_uri(); ?>/img/course1.jpg" alt="1ヶ月コース">
+      <div class="course-info">
+        <h3>1ヶ月コース</h3>
+        <p>短期間で自分の魅力を知りたい方におすすめ</p>
+        <a href="#" class="btn">詳細を見る</a>
+      </div>
+    </div>
+
+    <!-- 3ヶ月コース -->
+    <div class="course-item">
+      <img src="<?php echo get_template_directory_uri(); ?>/img/course2.jpg" alt="3ヶ月コース">
+      <div class="course-info">
+        <h3>3ヶ月コース</h3>
+        <p>ファッションを通じて自己理解を深める</p>
+        <a href="#" class="btn">詳細を見る</a>
+      </div>
+    </div>
+
+    <!-- 6ヶ月コース -->
+    <div class="course-item">
+      <img src="<?php echo get_template_directory_uri(); ?>/img/course3.jpg" alt="6ヶ月コース">
+      <div class="course-info">
+        <h3>6ヶ月コース</h3>
+        <p>自信とスタイルを定着させる長期プログラム</p>
+        <a href="#" class="btn">詳細を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ★ ニュース・投稿記事一覧セクション -->
+  <section id="information">
+    <div class="articles">
+      <?php if (have_posts()): // 投稿が存在するかチェック ?>
+        <?php while (have_posts()): the_post(); // 投稿がある間ループ ?>
+
+          <article>
+            <?php if (has_post_thumbnail()): // アイキャッチ画像がある場合 ?>
+              <figure>
+                <?php the_post_thumbnail('post-thumbnails'); // アイキャッチ画像を表示 ?>
+              </figure>
+            <?php else: // 画像がない場合 ?>
+              <figure>
+                <p class="nothing">
+                  <img class="nothing-thumbnails" src="<?php echo get_template_directory_uri(); ?>/img/dinosaur_spinosaurus_water.png" alt="No Image">
+                </p>
+              </figure>
+            <?php endif; ?>
+
+            <p><?php echo get_the_date(); // 投稿日時を表示 ?></p>
+            <h2><?php the_title(); // 記事タイトルを表示 ?></h2>
+            <a href="<?php the_permalink(); ?>">ニュース記事詳細はこちら</a>
+          </article>
+
+        <?php endwhile; ?>
+      <?php else: // 投稿が存在しない場合 ?>
+        <p>投稿がありません</p>
+      <?php endif; ?>
+    </div>
+
+    <!-- News一覧ページへのリンク -->
+    <div class="list_link">
+      <a href="<?php bloginfo('url'); ?>/news">🔗 news 一覧を見る</a>
+    </div>
+
+  </section>
+
 </main>
-<?php get_footer(); ?>
+
+<?php get_footer(); // フッター部分を読み込む ?>
