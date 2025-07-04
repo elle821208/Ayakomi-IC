@@ -32,9 +32,10 @@
           <li><a href="<?php echo home_url('/profile'); ?>">自己紹介</a></li>
           <li><a href="<?php echo home_url('/about'); ?>">インサイトコーディネーターとは</a></li>
           <li><a href="<?php echo home_url('/course'); ?>">コース</a></li>
-          <li><a href="<?php echo home_url('/price'); ?>">料金プラン</a></li>
+          <li><a href="<?php echo home_url('/counseling'); ?>">料金プラン</a></li>
           <li><a href="<?php echo home_url('/contact'); ?>">お問い合わせ</a></li>
-          <li><a href="<?php echo home_url('/news'); ?>">ブログニュース</a></li>
+          <li><a href="<?php echo home_url('/news'); ?>">ブログ</a></li>
+          <li><a href="https://www.instagram.com/【あなたのインスタID】" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </nav>
     </div>

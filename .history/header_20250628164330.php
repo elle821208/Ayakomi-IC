@@ -34,7 +34,7 @@
           <li><a href="<?php echo home_url('/course'); ?>">コース</a></li>
           <li><a href="<?php echo home_url('/price'); ?>">料金プラン</a></li>
           <li><a href="<?php echo home_url('/contact'); ?>">お問い合わせ</a></li>
-          <li><a href="<?php echo home_url('/news'); ?>">ブログニュース</a></li>
+          <li><a href="<?php echo get_permalink( get_option( 'page_for_posts' ) ); ?>">ブログ</a></li>
         </ul>
       </nav>
     </div>
